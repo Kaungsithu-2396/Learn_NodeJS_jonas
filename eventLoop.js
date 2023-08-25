@@ -38,20 +38,40 @@ const fs = require("fs");
 //     }
 // });
 
-fs.readFile("./specifipath", () => {
-    setTimeout(() => {
-        console.log("callback one");
-    });
-    setImmediate(()=>{
-        console.log('set immediate');
-        
-    })
-});
-console.log("_______");
+// fs.readFile("./specifipath", () => {
+//     setTimeout(() => {
+//         console.log("callback one");
+//     }); //expired timers queue
+//     setImmediate(() => {
+//         console.log("set immediate");
+//     }); //check phase
+//     Promise.resolve().then(() => {
+//         console.log("boo");
+//     }); //microtask queue
+// });
+// console.log("_______");
 
+// setTimeout(() => {
+//     console.log("time out ");
+// }, 0);
+// setImmediate(() => {
+//     console.log("set immediate");
+// });
+// fs.readFile("./txt/final.txt", () => console.log("file read"));
+// setTimeout(() => {
+//     console.log("time out execute");
+// }, 0);
+
+// fs.readFile("/specificPath", () => {
+//     console.log("read file", Date.now() - currentTimeinMs);
+// });
+// Promise.resolve().then(() => console.log("promise"));
 setTimeout(() => {
-    console.log("time out ");
-}, 0);
-setImmediate(() => {
-    console.log("set immediate");
+    fs.readFile("./txt/final.txt", (data) => console.log("read file",data));
+    setTimeout(() => {
+        console.log("ok");
+    });
+    setImmediate(() => console.log("set immediate"));
 });
+
+console.log('nice');
