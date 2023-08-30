@@ -33,9 +33,25 @@ const fileInputData = `\n this file is written in ${year}.${month + 1}.${day} `;
 // console.log("reading file...");
 
 //server
-const server = http.createServer((req, resp) => {
-    resp.end("Welcome from practice web server");
-});
-server.listen(3000, "127.0.1", () => {
-    console.log("server started");
+// const server = http.createServer((req, resp) => {
+//     resp.end("Welcome from practice web server");
+// });
+// server.listen(3000, "127.0.1", () => {
+//     console.log("server started");
+// });
+
+// setTimeout(() => {
+//     console.log("set timeout 1");
+
+//     Promise.resolve().then(() => console.log("proimise 1"));
+//     process.nextTick(() => console.log("nex tick"));
+// });
+// setTimeout(() => {
+//     console.log("set time out 2");
+// });
+
+fs.readFile("./txt/input.txt", () => {
+    setTimeout(() => {
+        console.log("set time out from file read process");
+    });
 });

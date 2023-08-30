@@ -52,6 +52,7 @@ const dataObjectForm = JSON.parse(data);
 
 const server = http.createServer((req, res) => {
     const { query, pathname } = url.parse(req.url, true);
+    console.log(url.parse(req.url, true));
 
     //overview page
     if (pathname === "/" || pathname === "/overview") {
@@ -71,6 +72,7 @@ const server = http.createServer((req, res) => {
     //product page
     else if (pathname === "/product") {
         res.writeHead(200, { "Content-type": "text/html" });
+        console.log(query.id)
         const currentProduct = dataObjectForm[query.id];
         const productRender = transformTemplate(tempProduct, currentProduct);
         res.end(productRender);
