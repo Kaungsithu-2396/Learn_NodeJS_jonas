@@ -22,6 +22,6 @@ server.on("request", (req, resp) => {
     const readable = fs.createReadStream("test-file.txt");
     readable.pipe(resp);
 });
-server.listen(8000, "localhost", () => {
+server.listen(4000, "localhost", () => {
     console.log("file read start");
 });
